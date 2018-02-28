@@ -1,5 +1,6 @@
 # [2018-02-06] Challenge #350 [Easy] Bookshelf problem
 # https://www.reddit.com/r/dailyprogrammer/comments/7vm223/20180206_challenge_350_easy_bookshelf_problem/
+# I am aware this isn't the optimised solution, but my maths is bad :(
 
 totalShelf = 0
 bookList = []
