@@ -1,7 +1,8 @@
-name = raw_input("Name?: ")
-age = raw_input("Age?: ")
-username = raw_input("Username?: ")
+a, b ,c = raw_input("Enter your name, age and username seperated by spaces: ").split(" ")
 
-print "your name is %s, you are %s years old, and your username is %s" % (name,age,username)
+str = "your name is %s, you are %s years old, and your username is %s" % (a,b,c)
+
 with open ("output.txt", "w") as text_file:
-	text_file.write("your name is %s, you are %s years old, and your username is %s" % (name,age,username))
+	text_file.write(str)
+	print str
+	text_file.close()
