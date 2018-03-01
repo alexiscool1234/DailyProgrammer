@@ -17,27 +17,18 @@
 # print "You have %s days until the weekend, %s work hours and %s non-work hours to go. " % (days_left,hoursLeftTotal,((days_left * 24) - (9 * days_left)))
 
 
+from datetime import timedelta,datetime
 
-import datetime
+minutesCount = 0
 
-delta = 1
-dayCounter = 0
-today = datetime.datetime.now()
-today.strftime("%X") # time in HH:MM:SS
-
-hoursBeforeTomorrow = 24 - int(str(today.strftime("%X")).split(":")[0])
-minsLeftToday = (hoursBeforeTomorrow * 60) - int(str(today.strftime("%X")).split(":")[1])
-
-print "Hours left until hometime today: %s" % round((float((float(minsLeftToday )) / 60) - 7), 2)
+today = datetime.now()
+print "The time is: %s" % (today.strftime("%H:%M:%S")) # time in HH:MM:SS
 
 while True:
-	if str((today + datetime.timedelta(delta)).strftime("%A")) != "Friday":
-		delta += 1
-		dayCounter += 1
-	else:
+	today = today + timedelta(minutes=1)
+	if (today.strftime("%A") == "Friday") and (today.strftime("%H") == "17"):
 		break
-		
-if dayCounter != 0:
-	print "Hours left until weekened: %s" % (round((float((float(minsLeftToday)) / 60)), 2) + ((dayCounter) * 24) + 17)
-else:
-	print "Hours left until weekened: %s" % (round((float((float(minsLeftToday)) / 60)), 2) + 7)
+	else:
+		minutesCount += 1
+
+print "It is %d hours / %d minutes / %d seconds until the weekend!" % ((minutesCount / 60), minutesCount, (minutesCount * 60))
